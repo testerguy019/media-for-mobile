@@ -155,6 +155,7 @@ public class MediaSource implements IMediaSource {
     public Iterable<MediaFormat> getMediaFormats() {
         LinkedList<MediaFormat> result = new LinkedList<MediaFormat>();
         for (int i = 0; i < mediaExtractor.getTrackCount(); i++) {
+            if (mediaExtractor.getTrackFormat(i) == null) continue;
             result.add(mediaExtractor.getTrackFormat(i));
         }
         return result;
