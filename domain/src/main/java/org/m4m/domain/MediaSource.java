@@ -163,6 +163,7 @@ public class MediaSource implements IMediaSource {
     @Override
     public MediaFormat getMediaFormatByType(MediaFormatType mediaFormatType) {
         for (MediaFormat mediaFormat : getMediaFormats()) {
+            if (mediaFormat == null) continue;
             if (mediaFormat.getMimeType().startsWith(mediaFormatType.toString())) {
                 return mediaFormat;
             }
